@@ -8,7 +8,7 @@ let highScore;
 
 function setup() {
   createCanvas(720, 400);
-  colorMode(HSB);
+  colorMode(HSB, 100, 0, 100)
   noStroke();
   ellipseMode(RADIUS);
   textSize(36);
@@ -33,7 +33,7 @@ function draw() {
     describeElement('Circle', 'Randomly colored shrinking circle');
 
     // Shrink it
-    circleRadius -= 1;
+    circleRadius -= 0.5;
 
     // Show the score
     textAlign(RIGHT, TOP);
@@ -104,4 +104,11 @@ function mousePressed() {
     startGame();
     loop();
   }
+}
+
+function mouseDragged() {
+  // Sets the outline color of the circle
+  strokeWeight(10);
+  let lineHue = mouseX - mouseY;
+  stroke(lineHue, 100, 90);
 }
